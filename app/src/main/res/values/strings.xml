@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GlowLingo</string>
+    <string name="a11y_desc">Ekrandaki kelimeleri çevirir ve yıldızladığın kelimeleri her yerde parlatır. Ekran içeriği cihazdan çıkmaz; yalnızca çevrilen kelime çeviri servisine gönderilir.</string>
+</resources>
