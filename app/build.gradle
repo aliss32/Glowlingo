@@ -1,0 +1,46 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'app.glowlingo'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'app.glowlingo'
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+
+    // Kişisel kullanım için repoda sabit bir anahtar var: böylece her sürüm üzerine güncellenir.
+    // Herkese açık dağıtacaksan kendi anahtarınla değiştir.
+    signingConfigs {
+        release {
+            storeFile file('glowlingo.jks')
+            storePassword 'glowlingo'
+            keyAlias 'glow'
+            keyPassword 'glowlingo'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions { jvmTarget = '17' }
+}
+
+dependencies {
+    // Çevrimdışı çeviri seçeneği için (ilk kullanımda dil modeli iner)
+    implementation 'com.google.mlkit:translate:17.0.3'
+}
